@@ -241,37 +241,6 @@ main {
     color: white;
 }
 
-/* 
-   DEVELOPERS
-*/
-
-.developers-section {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-.developer-team {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-.team-title {
-    color: var(--cyber-blue);
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-.developer-team p {
-    margin: 0;
-    font-size: 13px;
-    color: #9db1c5;
-    transition: 0.3s ease;
-}
-.developer-team p:hover {
-    color: white;
-    transform: translateX(-5px);
-}
-
 /*
    FOOTER
 */
