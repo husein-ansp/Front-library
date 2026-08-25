@@ -1,0 +1,242 @@
+/*
+  GENERAL
+*/
+
+body {
+    min-height: 100vh;
+    background-color: cyan !important;
+    margin: 0;
+    padding: 20px;
+    font-family: "Vazir", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/*
+  login box
+*/
+
+#header-style {
+    width: 90%;
+    max-width: 430px;
+    padding: 35px 35px 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 25px;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+    animation: boxAppear 0.8s ease forwards;
+    transition: 0.35s ease;
+}
+#header-style:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.22);
+}
+
+/* 
+  logun icon
+*/
+
+.login-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: iconAppear 0.8s ease 0.2s both;
+    transition: 0.3s ease;
+}
+.login-icon span {
+    font-size: 35px;
+    transition: 0.3s ease;
+}
+.login-icon:hover {
+    transform: rotate(-8deg) scale(1.08);
+}
+.login-icon:hover span {
+    transform: scale(1.15);
+}
+
+/* 
+  title
+*/
+
+#h1-style {
+    font-family: "Vazir", sans-serif;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    line-height: 1.6;
+    font-weight: 700;
+    color: #172b3a;
+    animation: titleAppear 0.8s ease 0.25s both;
+}
+
+/*
+  inputs
+*/
+
+.input-group-custom {
+    margin-bottom: 20px;
+    text-align: right;
+    animation: inputAppear 0.6s ease both;
+}
+.input-group-custom:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #172b3a;
+}
+.form-control {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 50px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-family: "Vazir", sans-serif;
+    background: rgba(255, 255, 255, 0.85);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+.form-control::placeholder {
+    color: #777;
+    transition: 0.3s ease;
+}
+.form-control:focus {
+    border-color: #ffca2c;
+    box-shadow:
+        0 0 0 4px rgba(255, 202, 44, 0.22);
+    transform: translateY(-2px);
+    outline: none;
+}
+.form-control:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* 
+  login button
+*/
+
+button {
+    padding: 11px 30px;
+    min-width: 130px;
+    border-radius: 12px !important;
+    font-family: "Vazir", sans-serif;
+    font-weight: 700;
+    border: none !important;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.18);
+}
+button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* 
+  animations
+*/
+
+@keyframes boxAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes iconAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-20deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes inputAppear {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 
+  responcive
+*/
+
+@media (max-width: 768px) {
+    #header-style {
+        margin: 40px auto;
+        padding: 30px 25px 35px;
+    }
+    #h1-style {
+        font-size: 1.7rem;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    #header-style {
+        width: 100%;
+        margin: 20px auto;
+        padding: 25px 20px 30px;
+        border-radius: 20px;
+    }
+    #h1-style {
+        font-size: 1.35rem;
+        margin-bottom: 25px;
+    }
+    .form-label {
+        text-align: right;
+    }
+    .btn {
+        width: 100%;
+    }
+    .login-icon {
+        width: 65px;
+        height: 65px;
+    }
+    .login-icon span {
+        font-size: 30px;
+    }
+}
