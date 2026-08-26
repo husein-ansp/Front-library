@@ -1,5 +1,5 @@
 /* 
-   SEARCH
+search
 */
 
 const searchForm = document.getElementById("searchForm");
@@ -16,10 +16,6 @@ if (searchForm) {
         alert("در حال جستجو برای: " + searchValue);
     });
 }
-
-/* 
-   MENU ACTIVE STATE
-*/
 const menuItems = document.querySelectorAll(".menu-item");
 menuItems.forEach(function (item) {
     item.addEventListener("click", function () {
@@ -29,8 +25,9 @@ menuItems.forEach(function (item) {
         this.classList.add("active");
     });
 });
+
 /* 
-   LOGO ANIMATION
+logo
 */
 
 const logo = document.querySelector(".library-logo");

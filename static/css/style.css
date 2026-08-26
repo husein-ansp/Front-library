@@ -1,5 +1,5 @@
 /* 
-   FONT
+font
 */
 
 @font-face {
@@ -19,7 +19,7 @@
 }
 
 /*
-   ROOT
+root
 */
 
 :root {
@@ -33,7 +33,7 @@
 }
 
 /*
-   GENERAL
+general
 */
 
 * {
@@ -58,7 +58,7 @@ main {
 }
 
 /* 
-   HEADER
+header
 */
 
 .main-header {
@@ -71,7 +71,7 @@ main {
 }
 
 /*
-   NAVBAR
+navbar
 */
 
 .navbar {
@@ -80,7 +80,7 @@ main {
 }
 
 /*
-   LOGO
+logo
 */
 
 .library-logo {
@@ -90,7 +90,6 @@ main {
     color: white !important;
     text-decoration: none;
 }
-
 .logo-icon {
     width: 48px;
     height: 48px;
@@ -131,7 +130,7 @@ main {
 }
 
 /*
-   MENU
+menu
 */
 
 .main-menu {
@@ -155,7 +154,9 @@ main {
     transition: transform 0.3s ease;
 }
 
-/* Hover */
+/*
+hover
+*/
 
 .menu-item:hover {
     color: white !important;
@@ -165,9 +166,6 @@ main {
 .menu-item:hover i {
     transform: scale(1.25) rotate(-5deg);
 }
-
-/* خط زیر آیتم */
-
 .menu-item::after {
     content: "";
     position: absolute;
@@ -184,7 +182,9 @@ main {
     width: 55%;
 }
 
-/* Logout */
+/*
+logout
+*/
 
 .logout-item:hover {
     background: rgba(255, 70, 70, 0.12);
@@ -192,7 +192,7 @@ main {
 }
 
 /*
-   SEARCH
+search
 */
 
 .search-box {
@@ -242,7 +242,7 @@ main {
 }
 
 /*
-   FOOTER
+footer
 */
 
 .main-footer {
@@ -298,7 +298,7 @@ main {
 }
 
 /*
-   MOBILE
+mobile
 */
 
 .navbar-toggler {
@@ -330,5 +330,81 @@ main {
     }
     .footer-bottom {
         flex-direction: column;
+    }
+}
+
+/* 
+login and register buttons
+*/
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+.auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 45px;
+    padding: 0 14px;
+    border-radius: 12px;
+    font-family: "Vazir", sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+.auth-btn i {
+    font-size: 16px;
+}
+
+/* 
+login 
+*/
+
+.login-btn {
+    color: #b7c8d8;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.login-btn:hover {
+    color: white;
+    background: rgba(0, 168, 255, 0.12);
+    border-color: rgba(0, 168, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+/* 
+register
+*/
+
+.register-btn {
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #00a8ff,
+        #0066ff
+    );
+    border: 1px solid transparent;
+    box-shadow: 0 0 15px rgba(0, 168, 255, 0.2);
+}
+.register-btn:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 168, 255, 0.4);
+}
+@media (max-width: 991px) {
+    .auth-buttons {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: stretch;
+    }
+    .auth-btn {
+        flex: 1;
     }
 }
