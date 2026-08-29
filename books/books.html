@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتاب‌های کتابخانه</title>
+
+    <!-- bootstrap RTL -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- bootstrap icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- books CSS -->
+
+    <link rel="stylesheet" href="css/books.css">
+</head>
+<body>
+    <div class="page-background"></div>
+
+    <!-- header -->
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="brand">
+                <div class="brand-icon">
+                    <i class="bi bi-book-half"></i>
+                </div>
+                <div class="brand-text">
+                    <strong>کتابخانه</strong>
+                    <span>علامه حلی ۳</span>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <a href="#">
+                    <i class="bi bi-house-door"></i>
+                    <span>خانه</span>
+                </a>
+                <a href="#" class="active">
+                    <i class="bi bi-book"></i>
+                    <span>کتاب‌ها</span>
+                </a>
+                <a href="#">
+                    <i class="bi bi-info-circle"></i>
+                    <span>درباره ما</span>
+                </a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="account-btn">
+                    <i class="bi bi-person"></i>
+                    <span>حساب کاربری</span>
+                </a>
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                    aria-label="باز کردن منو"
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- mobile navigation -->
+
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#">
+                <i class="bi bi-house-door"></i>
+                خانه
+            </a>
+            <a href="#" class="active">
+                <i class="bi bi-book"></i>
+                کتاب‌ها
+            </a>
+            <a href="#">
+                <i class="bi bi-info-circle"></i>
+                درباره ما
+            </a>
+        </div>
+    </header>
+
+    <!-- main -->
+     
+    <main>
+        <section class="books-hero">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span></span>
+                    کتابخانه علامه حلی ۳
+                </div>
+                <h1>
+                    کتاب مورد علاقه‌ات
+                    <br>
+                    <span>اینجاست</span>
+                </h1>
+                <p>
+                    در میان کتاب‌های کتابخانه جستجو کن، مشخصات آن‌ها را ببین
+                    و کتاب مورد نظرت را پیدا کن.
+                </p>
+                <div class="hero-search">
+                    <i class="bi bi-search"></i>
+                    <input
+                        type="search"
+                        id="bookSearch"
+                        placeholder="نام کتاب، نویسنده یا ISBN را جستجو کنید..."
+                    >
+                    <button type="button" id="searchButton">
+                        جستجو
+                    </button>
+                </div>
+            </div>
+            <div class="hero-decoration">
+                <div class="floating-book book-one">
+                    <i class="bi bi-book"></i>
+                </div>
+                <div class="floating-book book-two">
+                    <i class="bi bi-journal-bookmark-fill"></i>
+                </div>
+                <div class="floating-book book-three">
+                    <i class="bi bi-book-half"></i>
+                </div>
+                <div class="hero-circle"></div>
+            </div>
+        </section>
+        <section class="books-section">
+            <div class="section-heading">
+                <div class="section-title">
+                    <span>کتابخانه</span>
+                    <h2>همه کتاب‌ها</h2>
+                </div>
+                <div class="book-count">
+                    <i class="bi bi-bookshelf"></i>
+                    <strong id="bookCount">۱</strong>
+                    <span>کتاب</span>
+                </div>
+            </div>
+            <div class="books-tools">
+                <div class="filter-box">
+                    <i class="bi bi-funnel"></i>
+                    <select id="categoryFilter">
+                        <option value="">
+                            همه دسته‌بندی‌ها
+                        </option>
+                        <option value="داستان">
+                            داستان
+                        </option>
+                        <option value="علمی">
+                            علمی
+                        </option>
+                        <option value="تاریخی">
+                            تاریخی
+                        </option>
+                        <option value="ادبیات">
+                            ادبیات
+                        </option>
+                    </select>
+                </div>
+                <button
+                    class="sort-btn"
+                    id="sortButton"
+                    type="button"
+                >
+                    <i class="bi bi-sort-down"></i>
+                    مرتب‌سازی
+                </button>
+            </div>
+            <div class="books-table-wrap">
+                <div class="table-responsive">
+                    <table class="books-table">
+                        <thead>
+                            <tr>
+                                <th>کتاب</th>
+                                <th>نویسنده</th>
+                                <th>ISBN</th>
+                                <th>دسته‌بندی</th>
+                                <th>سال انتشار</th>
+                                <th>وضعیت</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="booksTableBody">
+
+                            <!-- sample Book -->
+
+                            <tr
+                                class="book-row"
+                                data-category="داستان"
+                            >
+                                <td>
+                                    <div class="book-info">
+                                        <div class="book-cover">
+                                            <i class="bi bi-book-half"></i>
+                                        </div>
+                                        <div>
+                                            <strong>
+                                                نمونه کتاب
+                                            </strong>
+                                            <span>
+                                                اطلاعات کتاب از اکسل بارگذاری می‌شود
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="author-name">
+                                        نام نویسنده
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="isbn">
+                                        978-000-000000-0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="category-tag">
+                                        داستان
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="publish-year">
+                                        ۱۴۰۵
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="availability available">
+                                        <span></span>
+                                        موجود
+                                    </span>
+                                </td>
+                                <td>
+                                    <button
+                                        class="book-details"
+                                        type="button"
+                                        title="مشاهده اطلاعات"
+                                        aria-label="مشاهده اطلاعات کتاب"
+                                    >
+                                        <i class="bi bi-arrow-up-left"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    class="no-results"
+                    id="noResults"
+                >
+                    <div class="no-results-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <h3>
+                        کتابی پیدا نشد
+                    </h3>
+                    <p>
+                        عبارت جستجو یا فیلتر دیگری را امتحان کنید.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <!-- books JS -->
+
+    <script src="js/books.js"></script>
+</body>
+</html>

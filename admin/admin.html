@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>پنل مدیریت کتابخانه</title>
+
+	<!-- bootstrap rtl -->
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+	<!-- bootstrap icons -->
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+	<!-- admin css -->
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+	<div class="admin-wrapper">
+
+		<!-- sidebar -->
+
+		<aside class="sidebar" id="sidebar">
+			<div class="sidebar-header">
+				<div class="library-logo">
+					<i class="bi bi-book-half"></i>
+				</div>
+				<div>
+					<h5>کتابخانه</h5>
+					<span>پنل مدیریت</span>
+				</div>
+			</div>
+			<nav class="sidebar-menu">
+				<div class="menu-title">اصلی</div>
+				<a href="#dashboard" class="menu-item active">
+					<i class="bi bi-grid-1x2-fill"></i>
+					<span>داشبورد</span>
+				</a>
+				<div class="menu-title">کاربران</div>
+				<a href="#users" class="menu-item">
+					<i class="bi bi-people-fill"></i>
+					<span>لیست کاربران</span>
+				</a>
+				<a href="#create-user" class="menu-item">
+					<i class="bi bi-person-plus-fill"></i>
+					<span>ایجاد کاربر جدید</span>
+				</a>
+				<a href="#roles" class="menu-item">
+					<i class="bi bi-shield-lock-fill"></i>
+					<span>مدیریت نقش‌ها</span>
+				</a>
+				<div class="menu-title">کتاب‌ها</div>
+				<a href="#books" class="menu-item">
+					<i class="bi bi-book-fill"></i>
+					<span>کتاب‌های کتابخانه</span>
+				</a>
+				<a href="#add-book" class="menu-item">
+					<i class="bi bi-bookmark-plus-fill"></i>
+					<span>افزودن کتاب</span>
+				</a>
+				<div class="menu-title">امانت و رزرو</div>
+				<a href="#loans" class="menu-item">
+					<i class="bi bi-arrow-left-right"></i>
+					<span>امانت آنلاین</span>
+					<span class="menu-badge">0</span>
+				</a>
+				<a href="#reservations" class="menu-item">
+					<i class="bi bi-calendar-check-fill"></i>
+					<span>رزرو حضوری</span>
+				</a>
+				<a href="#returns" class="menu-item">
+					<i class="bi bi-box-arrow-in-left"></i>
+					<span>تحویل گرفتن کتاب</span>
+				</a>
+			</nav>
+			<div class="sidebar-bottom">
+				<a href="#" class="menu-item">
+					<i class="bi bi-gear-fill"></i>
+					<span>تنظیمات</span>
+				</a>
+				<a href="#" class="menu-item logout">
+					<i class="bi bi-box-arrow-right"></i>
+					<span>خروج از حساب</span>
+				</a>
+			</div>
+		</aside>
+
+		<!-- main content -->
+
+		<main class="main-content">
+
+			<!-- header -->
+
+			<header class="admin-header">
+				<div class="header-right">
+					<button class="sidebar-toggle" id="sidebarToggle" type="button">
+						<i class="bi bi-list"></i>
+					</button>
+					<div class="page-title">
+						<span>پنل مدیریت</span>
+						<h1>مدیریت کتابخانه</h1>
+					</div>
+				</div>
+				<div class="header-left">
+					<div class="admin-search">
+						<i class="bi bi-search"></i>
+						<input type="search" placeholder="جستجو در کتابخانه..." id="adminSearch">
+					</div>
+					<button class="header-icon notification-btn" type="button">
+						<i class="bi bi-bell-fill"></i>
+						<span class="notification-dot"></span>
+					</button>
+					<div class="admin-profile">
+						<div class="profile-avatar">
+							<i class="bi bi-person-fill"></i>
+						</div>
+						<div class="profile-info">
+							<strong>مدیر کتابخانه</strong>
+							<span>پنل مدیریت</span>
+						</div>
+						<i class="bi bi-chevron-down"></i>
+					</div>
+				</div>
+			</header>
+
+			<!-- dashboard -->
+
+			<section class="admin-section dashboard-section" id="dashboard">
+				<div class="welcome-box">
+					<div>
+						<span class="welcome-small">خوش آمدید 👋</span>
+						<h2>مدیریت کتابخانه</h2>
+						<p>از این بخش می‌توانید بخش‌های مختلف کتابخانه را مدیریت کنید.</p>
+					</div>
+					<div class="welcome-icon">
+						<i class="bi bi-stars"></i>
+					</div>
+				</div>
+				<div class="statistics-grid">
+					<div class="stat-card">
+						<div class="stat-icon blue">
+							<i class="bi bi-people-fill"></i>
+						</div>
+						<div class="stat-content">
+							<span>کاربران</span>
+							<strong data-stat="users">-</strong>
+							<small>تعداد کاربران</small>
+						</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-icon purple">
+							<i class="bi bi-book-fill"></i>
+						</div>
+						<div class="stat-content">
+							<span>کتاب‌ها</span>
+							<strong data-stat="books">-</strong>
+							<small>تعداد کتاب‌ها</small>
+						</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-icon green">
+							<i class="bi bi-journal-arrow-up"></i>
+						</div>
+						<div class="stat-content">
+							<span>امانت فعال</span>
+							<strong data-stat="loans">-</strong>
+							<small>امانت‌های فعال</small>
+						</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-icon orange">
+							<i class="bi bi-hourglass-split"></i>
+						</div>
+						<div class="stat-content">
+							<span>درخواست‌ها</span>
+							<strong data-stat="requests">-</strong>
+							<small>درخواست‌های در انتظار</small>
+						</div>
+					</div>
+				</div>
+				<div class="section-header">
+					<div>
+						<span>دسترسی سریع</span>
+						<h3>عملیات پرکاربرد</h3>
+					</div>
+				</div>
+				<div class="quick-actions">
+					<button class="quick-action" data-target="create-user" type="button">
+						<i class="bi bi-person-plus-fill"></i>
+						<span>ایجاد کاربر</span>
+					</button>
+					<button class="quick-action" data-target="add-book" type="button">
+						<i class="bi bi-bookmark-plus-fill"></i>
+						<span>افزودن کتاب</span>
+					</button>
+					<button class="quick-action" data-target="loans" type="button">
+						<i class="bi bi-arrow-left-right"></i>
+						<span>بررسی امانت‌ها</span>
+					</button>
+					<button class="quick-action" data-target="reservations" type="button">
+						<i class="bi bi-calendar-check-fill"></i>
+						<span>ثبت رزرو</span>
+					</button>
+					<button class="quick-action" data-target="returns" type="button">
+						<i class="bi bi-box-arrow-in-left"></i>
+						<span>تحویل کتاب</span>
+					</button>
+					<button class="quick-action" data-target="books" type="button">
+						<i class="bi bi-bookshelf"></i>
+						<span>مشاهده کتاب‌ها</span>
+					</button>
+				</div>
+			</section>
+
+			<!-- users -->
+
+			<section class="admin-section" id="users">
+				<div class="section-header">
+					<div>
+						<span>مدیریت کاربران</span>
+						<h2>لیست همه کاربران</h2>
+					</div>
+					<button class="primary-btn" data-target="create-user" type="button">
+						<i class="bi bi-person-plus-fill"></i>
+						ایجاد کاربر
+					</button>
+				</div>
+				<div class="content-card">
+					<div class="table-toolbar">
+						<div class="table-search">
+							<i class="bi bi-search"></i>
+							<input type="search" placeholder="جستجوی کاربر..." id="userSearch">
+						</div>
+						<select class="form-select" id="userRoleFilter">
+							<option value="">همه نقش‌ها</option>
+						</select>
+					</div>
+					<div class="table-responsive">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>کاربر</th>
+									<th>نام کاربری</th>
+									<th>نقش</th>
+									<th>وضعیت</th>
+									<th>امانت فعال</th>
+									<th>عملیات</th>
+								</tr>
+							</thead>
+							<tbody id="usersTableBody"></tbody>
+						</table>
+					</div>
+					<div class="empty-state" id="usersEmptyState">
+						<i class="bi bi-people"></i>
+						<h3>کاربری برای نمایش وجود ندارد</h3>
+						<p>اطلاعات کاربران پس از اتصال به سیستم نمایش داده می‌شود.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- create user -->
+
+			<section class="admin-section" id="create-user">
+				<div class="section-header">
+					<div>
+						<span>کاربران</span>
+						<h2>ایجاد کاربر جدید</h2>
+					</div>
+				</div>
+				<div class="content-card form-card">
+					<form id="createUserForm">
+						<div class="form-grid">
+							<div class="form-group">
+								<label for="userFullName">نام و نام خانوادگی</label>
+								<input type="text" id="userFullName" name="fullName" placeholder="نام و نام خانوادگی" required>
+							</div>
+							<div class="form-group">
+								<label for="username">نام کاربری</label>
+								<input type="text" id="username" name="username" placeholder="نام کاربری" required>
+							</div>
+							<div class="form-group">
+								<label for="userPassword">رمز عبور</label>
+								<input type="password" id="userPassword" name="password" placeholder="رمز عبور" required>
+							</div>
+							<div class="form-group">
+								<label for="userRole">نقش کاربر</label>
+								<select id="userRole" name="role" required>
+									<option value="">انتخاب نقش</option>
+								</select>
+							</div>
+						</div>
+						<button class="primary-btn" type="submit">
+							<i class="bi bi-person-plus-fill"></i>
+							ساخت حساب کاربری
+						</button>
+					</form>
+				</div>
+			</section>
+			<section class="admin-section" id="roles">
+				<div class="section-header">
+					<div>
+						<span>امنیت</span>
+						<h2>مدیریت نقش‌ها</h2>
+					</div>
+				</div>
+				<div class="roles-grid" id="rolesGrid">
+					<div class="empty-state">
+						<i class="bi bi-shield-lock"></i>
+						<h3>نقشی برای نمایش وجود ندارد</h3>
+						<p>نقش‌ها توسط سیستم مدیریت دسترسی بارگذاری می‌شوند.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- books -->
+
+			<section class="admin-section" id="books">
+				<div class="section-header">
+					<div>
+						<span>مدیریت کتابخانه</span>
+						<h2>کتاب‌های موجود در کتابخانه</h2>
+					</div>
+					<button class="primary-btn" data-target="add-book" type="button">
+						<i class="bi bi-plus-lg"></i>
+						افزودن کتاب
+					</button>
+					<button class="delete-btn" data-target="books" type="button">
+    					<i class="bi bi-trash3-fill"></i>
+   						 حذف کتاب
+					</button>
+				</div>
+				<div class="content-card">
+					<div class="table-toolbar">
+						<div class="table-search">
+							<i class="bi bi-search"></i>
+							<input type="search" placeholder="جستجوی کتاب..." id="bookSearch">
+						</div>
+						<select class="form-select" id="bookCategoryFilter">
+							<option value="">همه دسته‌بندی‌ها</option>
+						</select>
+					</div>
+					<div class="table-responsive">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>کتاب</th>
+									<th>نویسنده</th>
+									<th>دسته‌بندی</th>
+									<th>موجودی</th>
+									<th>وضعیت</th>
+									<th>عملیات</th>
+								</tr>
+							</thead>
+							<tbody id="booksTableBody"></tbody>
+						</table>
+					</div>
+					<div class="empty-state" id="booksEmptyState">
+						<i class="bi bi-bookshelf"></i>
+						<h3>کتابی برای نمایش وجود ندارد</h3>
+						<p>اطلاعات کتاب‌ها پس از اتصال به سیستم نمایش داده می‌شود.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- add book -->
+
+			<section class="admin-section" id="add-book">
+				<div class="section-header">
+					<div>
+						<span>کتابخانه</span>
+						<h2>افزودن کتاب جدید</h2>
+					</div>
+				</div>
+				<div class="content-card form-card">
+					<form id="addBookForm">
+						<div class="form-grid">
+							<div class="form-group">
+								<label for="bookTitle">عنوان کتاب</label>
+								<input type="text" id="bookTitle" name="title" placeholder="عنوان کتاب" required>
+							</div>
+							<div class="form-group">
+								<label for="bookAuthor">نویسنده</label>
+								<input type="text" id="bookAuthor" name="author" placeholder="نام نویسنده" required>
+							</div>
+							<div class="form-group">
+								<label for="bookCategory">دسته‌بندی</label>
+								<select id="bookCategory" name="category" required>
+									<option value="">انتخاب دسته‌بندی</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="bookCopies">تعداد نسخه</label>
+								<input type="number" id="bookCopies" name="copies" min="1" placeholder="تعداد نسخه" required>
+							</div>
+						</div>
+						<button class="primary-btn" type="submit">
+							<i class="bi bi-bookmark-plus-fill"></i>
+							افزودن کتاب
+						</button>
+					</form>
+				</div>
+			</section>
+
+			<!-- loans -->
+
+			<section class="admin-section" id="loans">
+				<div class="section-header">
+					<div>
+						<span>امانت آنلاین</span>
+						<h2>درخواست‌های امانت</h2>
+					</div>
+				</div>
+				<div class="request-list" id="loanRequestsList">
+					<div class="empty-state">
+						<i class="bi bi-journal-check"></i>
+						<h3>درخواستی برای نمایش وجود ندارد</h3>
+						<p>درخواست‌های امانت آنلاین پس از دریافت از سیستم نمایش داده می‌شوند.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- reservations -->
+
+			<section class="admin-section" id="reservations">
+				<div class="section-header">
+					<div>
+						<span>رزرو حضوری</span>
+						<h2>ثبت رزرو کتاب</h2>
+					</div>
+				</div>
+				<div class="content-card form-card">
+					<form id="reservationForm">
+						<div class="form-grid">
+							<div class="form-group">
+								<label for="reservationUser">انتخاب کاربر</label>
+								<select id="reservationUser" name="user" required>
+									<option value="">انتخاب کاربر</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="reservationBook">انتخاب کتاب</label>
+								<select id="reservationBook" name="book" required>
+									<option value="">انتخاب کتاب</option>
+								</select>
+							</div>
+						</div>
+						<button class="primary-btn" type="submit">
+							<i class="bi bi-calendar-check-fill"></i>
+							ثبت رزرو
+						</button>
+					</form>
+				</div>
+			</section>
+
+			<!-- returns -->
+
+			<section class="admin-section" id="returns">
+				<div class="section-header">
+					<div>
+						<span>امانت‌ها</span>
+						<h2>تحویل گرفتن کتاب</h2>
+					</div>
+				</div>
+				<div class="content-card">
+					<div class="table-toolbar">
+						<div class="table-search">
+							<i class="bi bi-search"></i>
+							<input type="search" placeholder="جستجوی امانت..." id="returnSearch">
+						</div>
+					</div>
+					<div class="table-responsive">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>کاربر</th>
+									<th>کتاب</th>
+									<th>تاریخ امانت</th>
+									<th>موعد تحویل</th>
+									<th>وضعیت</th>
+									<th>عملیات</th>
+								</tr>
+							</thead>
+							<tbody id="returnsTableBody"></tbody>
+						</table>
+					</div>
+					<div class="empty-state" id="returnsEmptyState">
+						<i class="bi bi-box-arrow-in-left"></i>
+						<h3>امانتی برای تحویل وجود ندارد</h3>
+						<p>امانت‌های فعال پس از اتصال به سیستم نمایش داده می‌شوند.</p>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- bootstrap js -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- admin js -->
+
+	<script src="js/admin.js"></script>
+</body>
+</html>

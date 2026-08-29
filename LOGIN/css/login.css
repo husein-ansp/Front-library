@@ -23,6 +23,23 @@ fonts
     font-style: normal;
     font-display: swap;
 }
+html,
+body,
+button,
+input,
+textarea,
+select,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span {
+    font-family: "Vazir", sans-serif !important;
+}
 
 /*
 reset
@@ -225,8 +242,9 @@ titles
 */
 
 .login-title {
+    font-family: "Vazir", sans-serif !important;
     font-size: 24px;
-    font-weight: 800;
+    font-weight: 700;
     color: #064f5a;
     margin-bottom: 8px;
 }
@@ -419,8 +437,9 @@ login button
             #00b9c8
         );
     color: white;
+    font-family: "Vazir", sans-serif !important;
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,7 +481,8 @@ register
 }
 .register-section a {
     color: #00aebb;
-    font-weight: 800;
+    font-family: "Vazir", sans-serif !important;
+    font-weight: 700;
     text-decoration: none;
     margin-right: 4px;
 }
